@@ -1,0 +1,175 @@
+﻿@import "tailwindcss";
+
+@theme {
+  --font-heebo: "Heebo", sans-serif;
+  --font-frank: "Frank Ruhl Libre", serif;
+
+  --color-parchment: #f5f2ea;
+  --color-parchment-deep: #f0ede6;
+  --color-sand: #e1dbcf;
+  --color-bark: #3d3529;
+  --color-bark-light: #5a4f40;
+  --color-bark-muted: #6b5f4f;
+  --color-earth: #8a7d6b;
+  --color-moss: #6b7c5b;
+  --color-moss-light: #6b7c5b12;
+  --color-slate: #5b6b7c;
+  --color-slate-light: #5b6b7c12;
+  --color-plum: #7c5b6b;
+  --color-plum-light: #7c5b6b12;
+  --color-border: #ddd8cc;
+  --color-border-light: #d4cdbf;
+  --color-cream: #fffefa;
+  --color-muted: #aaa;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgb(107 124 91 / 0.2);
+}
+
+textarea:focus,
+button:focus-visible {
+  outline: 2px solid var(--color-moss);
+  outline-offset: 2px;
+}
+
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.article-content {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInFast {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.4;
+  }
+  30% {
+    transform: translateY(-6px);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease;
+}
+
+.animate-fade-in-fast {
+  animation: fadeInFast 0.3s ease;
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%,
+  80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translate3d(-3px, 0, 0);
+  }
+  40%,
+  60% {
+    transform: translate3d(3px, 0, 0);
+  }
+}
+
+.animate-shake {
+  animation: shake 0.4s cubic-bezier(.36, .07, .19, .97) both;
+}
+
+.protected-textarea:focus {
+  border-color: var(--focus-color, var(--color-moss));
+}
+
+.article-reader-intro {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-parchment-deep) 78%, #fff 22%) 0%,
+    color-mix(in srgb, var(--color-parchment) 90%, #fff 10%) 100%
+  );
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+
+.section-shell {
+  background: color-mix(in srgb, var(--color-cream) 82%, var(--color-parchment) 18%);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  padding: 18px 16px 14px;
+  box-shadow: 0 10px 30px rgb(61 53 41 / 0.045);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-moss), var(--color-slate));
+  opacity: 0.35;
+}
+
+.section-shell-body {
+  padding-top: 6px;
+}
+
+.section-brief {
+  background: color-mix(in srgb, var(--color-parchment) 85%, #fff 15%);
+  border: 1px solid var(--color-border);
+  border-left: 3px solid var(--color-earth);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.article-paragraph-card {
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
